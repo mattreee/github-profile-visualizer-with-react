@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
       background-color: #333;
       color: #eee;
       font-family: "Poppins", sans-serif;
+      overflow-y: scroll;
    }
 `;
 

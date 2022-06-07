@@ -2,9 +2,17 @@ import { useState } from "react";
 import { useData } from "../StateContainer";
 import RepositoriesItem from "./RepositoriesItem";
 
+import { RepositoriesWrapper } from "../styles/Repositories.styled";
+import { ButtonsWrapper } from "../styles/Repositories.styled";
+import { ListWrapper } from "../styles/Repositories.styled";
+
 const Repositories = () => {
 	const [repositoryMode, setRepositoryMode] = useState(true);
 	const { stateData } = useData();
+
+	const renderedArray = repositoryMode
+		? stateData?.repositories
+		: stateData?.starred;
 
 	const setRepo = () => {
 		setRepositoryMode(true);
@@ -15,38 +23,24 @@ const Repositories = () => {
 	};
 
 	return (
-		<div>
-			<div>
+		<RepositoriesWrapper>
+			<ButtonsWrapper>
 				<button onClick={setRepo}>Repos</button>
 				<button onClick={setStarred}>Starred</button>
-			</div>
-			{repositoryMode && (
-				<div>
-					{stateData?.repositories.map((elem: any) => {
-						return (
-							<RepositoriesItem
-								key={String(elem.id)}
-								name={elem.name}
-								fullName={elem.full_name}
-							/>
-						);
-					})}
-				</div>
-			)}
-			{!repositoryMode && (
-				<div>
-					{stateData?.starred.map((elem: any) => {
-						return (
-							<RepositoriesItem
-								key={String(elem.id)}
-								name={elem.name}
-								fullName={elem.full_name}
-							/>
-						);
-					})}
-				</div>
-			)}
-		</div>
+			</ButtonsWrapper>
+			<ListWrapper>
+				{renderedArray.map((elem: any) => {
+					return (
+						<RepositoriesItem
+							key={String(elem.id)}
+							name={elem.name}
+							fullName={elem.full_name}
+							html_url={elem.html_url}
+						/>
+					);
+				})}
+			</ListWrapper>
+		</RepositoriesWrapper>
 	);
 };
 

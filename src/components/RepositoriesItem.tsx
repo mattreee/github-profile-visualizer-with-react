@@ -1,10 +1,12 @@
-const RepositoriesItem = ({ name, fullName }: any) => {
+import { ItemWrapper } from "../styles/RepositoryItem.styled";
+
+const RepositoriesItem = ({ name, fullName, html_url }: any) => {
 	return (
-		<div>
+		<ItemWrapper>
 			<h2>{name}</h2>
-			<p>full name</p>
-			<p>{fullName}</p>
-		</div>
+			<p>Full name:</p>
+			<a href={html_url}>{fullName}</a>
+		</ItemWrapper>
 	);
 };
 

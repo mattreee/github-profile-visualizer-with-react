@@ -16,12 +16,12 @@ const ProfileCard = () => {
 				<p>Blog: {stateData?.user.blog}</p>
 			</div>
 
-			<ul>
-				<li>Followers: {stateData?.user.followers}</li>
-				<li>Following: {stateData?.user.following}</li>
-				<li>Gists: {stateData?.user.public_gists}</li>
-				<li>Repos: {stateData?.user.public_repos}</li>
-			</ul>
+			<div>
+				<p>Followers: {stateData?.user.followers}</p>
+				<p>Following: {stateData?.user.following}</p>
+				<p>Gists: {stateData?.user.public_gists}</p>
+				<p>Repos: {stateData?.user.public_repos}</p>
+			</div>
 		</ProfileWrapper>
 	);
 };
