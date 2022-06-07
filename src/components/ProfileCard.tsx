@@ -5,11 +5,15 @@ const ProfileCard = () => {
 
 	return (
 		<div>
-			<h1>{stateData?.user.name}</h1>
-			<p>Username: {stateData?.user.login}</p>
-			<p>Company: {stateData?.user.company}</p>
-			<p>Location: {stateData?.user.location}</p>
-			<p>Blog: {stateData?.user.blog}</p>
+			<img src={stateData?.user.avatar_url} alt="" />
+
+			<div>
+				<h1>{stateData?.user.name}</h1>
+				<p>Username: {stateData?.user.login}</p>
+				<p>Company: {stateData?.user.company}</p>
+				<p>Location: {stateData?.user.location}</p>
+				<p>Blog: {stateData?.user.blog}</p>
+			</div>
 
 			<ul>
 				<li>Followers: {stateData?.user.followers}</li>
