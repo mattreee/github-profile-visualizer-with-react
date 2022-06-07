@@ -5,7 +5,12 @@ import { StateDataInterface } from "./types";
 const StateContext = createContext({});
 
 export default function StateContainer({ children }: any) {
-	const [stateData, setStateData] = useState<StateDataInterface>();
+	const [stateData, setStateData] = useState<StateDataInterface>({
+		hasUser: false,
+		user: {},
+		repositories: [],
+		starred: [],
+	});
 
 	async function getUserData(username: string) {
 		const usersRes = await api.get(`users/${username}`);

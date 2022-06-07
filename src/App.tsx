@@ -1,16 +1,20 @@
 import StateContainer from "./StateContainer";
-import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
 import ProfileCard from "./components/ProfileCard";
 import Repositories from "./components/Repositories";
+
+import GlobalStyles from "./styles/Globals";
+import { AppWrapper } from "./styles/AppWrapper.styled";
 
 function App() {
 	return (
 		<StateContainer>
-			<main>
-				<Header />
+			<GlobalStyles />
+			<SearchBar />
+			<AppWrapper>
 				<ProfileCard />
 				<Repositories />
-			</main>
+			</AppWrapper>
 		</StateContainer>
 	);
 }

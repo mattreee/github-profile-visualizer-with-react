@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useGetUserData } from "../StateContainer";
 
+import { SearchStyles } from "../styles/SearchBar.styled";
+
 const Header = () => {
 	const [inputState, setInputState] = useState();
 	const getUserData = useGetUserData();
@@ -18,10 +20,10 @@ const Header = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<SearchStyles onSubmit={handleSubmit}>
 			<input type="text" name="search" id="search" onChange={onChange} />
 			<button type="submit">Search</button>
-		</form>
+		</SearchStyles>
 	);
 };
 

@@ -1,10 +1,11 @@
 import { useData } from "../StateContainer";
+import { ProfileWrapper } from "../styles/ProfileWrapper.styled";
 
 const ProfileCard = () => {
 	const { stateData } = useData();
 
 	return (
-		<div>
+		<ProfileWrapper>
 			<img src={stateData?.user.avatar_url} alt="" />
 
 			<div>
@@ -21,7 +22,7 @@ const ProfileCard = () => {
 				<li>Gists: {stateData?.user.public_gists}</li>
 				<li>Repos: {stateData?.user.public_repos}</li>
 			</ul>
-		</div>
+		</ProfileWrapper>
 	);
 };
 
